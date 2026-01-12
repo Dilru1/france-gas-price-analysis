@@ -1,0 +1,7 @@
+data_settings:
+  base_url: https://raw.githubusercontent.com/rvm-courses/GasPrices/master/
+  directory: "data/raw"
+  first_year: 2022
+  last_year: 2024
+
+

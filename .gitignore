@@ -1,0 +1,26 @@
+# --- .gitignore ---
+
+# Ignore Data (We download/generate this, we don't store it in code)
+data/
+*.csv
+*.csv.gz
+*.parquet
+*.json
+
+# Ignore Python Cache
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.DS_Store
+
+# Ignore Environment variables/Virtual Envs
+.env
+venv/
+env/
+.vscode/
+.idea/
+
+# Ignore Spark warehouse info
+derby.log
+metastore_db/
+spark-warehouse/

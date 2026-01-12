@@ -1,0 +1,13 @@
+pyspark>=3.5.0
+pandas
+seaborn
+matplotlib
+folium
+pyyaml
+requests
+tqdm
+streamlit        
+pyarrow          
+fastparquet     
+
+streamlit-folium
