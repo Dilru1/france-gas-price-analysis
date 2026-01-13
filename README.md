@@ -5,7 +5,7 @@ This project is aimed at understanding and forecasting fuel price trends across 
 
 The analysis begins with a robust **Environment Setup** that automatically configures dependencies for both Google Colab and local Linux environments. The **Data Collection** phase involves automated scripts to fetch raw CSV datasets from external repositories. A key strength of this project is its efficient **Data Preparation** utilizing Spark's lazy evaluation and **Parquet** storage formats to optimize performance. The pipeline merges data from multiple years, cleanses inconsistencies, and performs extensive **Feature Engineering**. Critical features created include the "Price Index" (to compare local prices against national averages), continuous "Week Indices" for temporal continuity, and lagged variables (e.g., `price_lag_1`, `rolling_avg_7`) to transform the time-series data into a supervised learning problem.
 
-![Fuel Price Trends](docs/images/docs/images/average_gas_trends.png)
+![Fuel Price Trends](/docs/images/average_gas_trends.png)
 
 
 
