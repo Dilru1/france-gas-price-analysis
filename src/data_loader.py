@@ -1,30 +1,32 @@
 import os
 import requests
 import yaml
-from tqdm import tqdm
+from tqdm import tqdm #for progress bar 
 
 def load_config(path=None):
-    # If no specific path is provided, find it automatically
+    """
+    Load YAML configuration file.
+    If path is None, automatically locate 'config/config.yaml' 
+    relative to this script.
+    """
     if path is None:
-        # 1. Get the folder where THIS script (data_loader.py) lives (i.e., 'src/')
-        current_script_dir = os.path.dirname(os.path.abspath(__file__))
-        
-        # 2. Go up one level to the Project Root
-        project_root = os.path.dirname(current_script_dir)
-        
-        # 3. Build the absolute path to config.yaml
-        path = os.path.join(project_root, 'config', 'config.yaml')
+        current_script_dir = os.path.dirname(os.path.abspath(__file__))  # Folder of this script
+        project_root = os.path.dirname(current_script_dir)               # Go up one level
+        path = os.path.join(project_root, 'config', 'config.yaml')       # Path to config.yaml
+
+    with open(path, 'r') as f:
+        return yaml.safe_load(f)
+
 
     with open(path, 'r') as f:
         return yaml.safe_load(f)
 
 def download_file(url, save_path):
-    """Downloads a file with a progress bar."""
+    """Download a files."""
     response = requests.get(url, stream=True)
     total_size = int(response.headers.get('content-length', 0))
     
-    # Ensure the directory for the file exists
-    os.makedirs(os.path.dirname(save_path), exist_ok=True)
+    os.makedirs(os.path.dirname(save_path), exist_ok=True)  # Ensure save directory exists
     
     with open(save_path, 'wb') as file, tqdm(
         desc=os.path.basename(save_path),
@@ -37,16 +39,15 @@ def download_file(url, save_path):
             size = file.write(data)
             bar.update(size)
 
+
+
 def download_data_pipeline():
-    # No arguments needed; it will find the config automatically now
-    config = load_config() 
+    """Main pipeline to download all required data files."""
+    config = load_config()  # Load config automatically
     
-    # We also need to fix the data directory path
-    # If config says 'gas_data', we want it to be absolute path: 'project_root/gas_data'
+    # Compute absolute path for data directory
     project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-    
     raw_data_dir_name = config['data_settings']['directory']
-    # Construct absolute path for data to avoid CWD issues
     data_dir = os.path.join(project_root, raw_data_dir_name)
     
     base_url = config['data_settings']['base_url']
@@ -60,6 +61,7 @@ def download_data_pipeline():
         'Stations2024.csv.gz', 'Services2024.csv.gz'
     ]
     
+    # Download each file if it doesn't already exist
     for filename in files:
         file_path = os.path.join(data_dir, filename)
         if not os.path.exists(file_path):
