@@ -31,3 +31,9 @@ Surprisingly, the **Linear Regression** model outperformed the more complex tree
 3. 🔗 [Page](https://dilru1.github.io/france-gas-price-analysis/)
 
 
+## Authors
+
+
+- [DEHIWALAGE DON Dilruwan](https://github.com/Dilru1)
+
+- [WANG Peifeng](https://github.com/mengjingchanyu)
