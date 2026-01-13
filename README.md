@@ -21,4 +21,4 @@ Analysis of gas prices in France (2022-2024) using PySpark. This project creates
    pip install -r requirements.txt
 
 
-3. 🔗 [Interactive map](map.html)
+3. 🔗 [Page](https://dilru1.github.io/france-gas-price-analysis/)
