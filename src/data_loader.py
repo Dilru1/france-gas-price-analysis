@@ -59,7 +59,7 @@ def download_data_pipeline():
         'Prix2022S1.csv.gz', 'Prix2022S2.csv.gz', 
         'Prix2023.csv.gz', 'Prix2024.csv.gz', 
         'Stations2024.csv.gz', 'Services2024.csv.gz'
-    ]
+    ] #Here the file names are hardcoded. if needed * finder can be use to match the patterns. 
     
     # Download each file if it doesn't already exist
     for filename in files:
