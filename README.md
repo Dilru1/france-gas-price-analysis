@@ -19,3 +19,6 @@ Analysis of gas prices in France (2022-2024) using PySpark. This project creates
    git clone [https://github.com/yourusername/gas-spark-project.git](https://github.com/yourusername/gas-spark-project.git)
    cd gas-spark-project
    pip install -r requirements.txt
+
+
+3. 🔗 [Interactive map](map.html)
